@@ -41,8 +41,30 @@ Online payment fraud is a significant risk for businesses and consumers. This pr
 - Minimize false alarms (high precision).
 - Provide an end-to-end ML pipeline that is easy to iterate and improve.
 
----
+## Clone and Run
 
+Follow these steps to get the project up and running locally:
+
+1. **Clone the repository:**
+   ```bash
+   git clone <REPO_URL>
+   cd fraud_detection_project
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   pip install -r app/requirements.txt
+   ```
+
+3. **Start the API:**
+   ```bash
+   uvicorn app.main:app --reload
+   ```
+
+4. **Access the API docs:**
+   - Open [http://localhost:8000/docs](http://localhost:8000/docs) in your browser.
+
+---
 
 ## Project Structure
 
