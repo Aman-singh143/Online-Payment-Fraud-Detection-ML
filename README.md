@@ -1,6 +1,16 @@
 # Online Payment Fraud Detection API
 
-This project provides an end-to-end machine learning pipeline and a FastAPI backend for detecting fraudulent online payment transactions. It includes data analysis, model training, and a production-ready API for real-time fraud prediction.
+## Project Summary
+
+This project implements an end-to-end machine learning pipeline to detect fraudulent online payment transactions. Using a real-world dataset with over 6.3 million records, it covers the full data science workflow, from exploration to production-ready REST API deployment.
+
+**Core Skillsets Demonstrated:**
+
+* Data preprocessing and feature engineering
+* Handling extreme class imbalance (fraud rate \~0.13%)
+* Model comparison and hyperparameter tuning
+* Ensemble learning with stacking and calibration
+* FastAPI deployment with live fraud prediction endpoint
 
 ---
 
@@ -33,18 +43,24 @@ Online payment fraud is a significant risk for businesses and consumers. This pr
 
 ---
 
+
 ## Project Structure
 
 ```
 fraud_detection_project/
-  ├── app/                # FastAPI backend and utilities
-  ├── model/              # Trained model and feature artifacts
-  ├── notebook/           # Jupyter notebooks and scripts for EDA/modeling
-  ├── Dockerfile          # (Optional) For containerized deployment
-  └── README.md           # Project documentation
+├── app/                     # FastAPI backend
+│   ├── main.py              # API entrypoint
+│   ├── model_utils.py       # Preprocessing + model loading
+│   └── schema.py            # Input validation schema
+├── model/                  # Trained model + features
+│   ├── xgb_fraud_model.pkl
+│   └── feature_columns.pkl
+├── notebook/               # EDA and model development
+│   └── fraud_model_dev.ipynb
+├── Dockerfile              # Optional: containerization
+├── requirements.txt        # Python dependencies
+└── README.md               # Documentation
 ```
-
----
 
 ## Data Science Pipeline
 
@@ -205,7 +221,42 @@ print(response.json())
 
 ---
 
+## Skills Demonstrated
+
+* Feature engineering using domain patterns
+* Class imbalance treatment (undersampling, SMOTE)
+* Cross-validation and model benchmarking
+* Ensemble learning and calibration
+* REST API design with FastAPI
+* ML deployment architecture
+
+---
+
+## Key Learnings
+
+* Precision-recall tradeoff is critical in fraud detection
+* Calibrated probabilities are important for imbalanced datasets
+* Threshold tuning significantly improves real-world F1 performance
+* Modular design enables smooth deployment with reproducibility
+
+---
+
+## Optional Enhancements
+
+* Add Streamlit UI
+* Containerize with Docker and deploy on Render/Railway/AWS
+* CI/CD with GitHub Actions
+* Logging and monitoring in production
+
+---
+
 ## License
 
 This project is for educational and research purposes. Please check the dataset's license for data usage restrictions. # Online-Payment-Fraud-Detection-ML
-# Online-Payment-Fraud-Detection-ML
+
+## Author
+
+Aman Singh
+
+For improvements, suggestions, or contributions, feel free to fork or open an issue.
+
