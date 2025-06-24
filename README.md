@@ -24,6 +24,7 @@ This project implements an end-to-end machine learning pipeline to detect fraudu
   - [API Initialization](#api-initialization)
   - [Endpoints](#endpoints)
   - [Request/Response Schema](#requestresponse-schema)
+- [Frontend](#frontend)
 - [How to Run](#how-to-run)
 - [Requirements](#requirements)
 - [Example Usage](#example-usage)
@@ -74,6 +75,9 @@ fraud_detection_project/
 │   ├── main.py              # API entrypoint
 │   ├── model_utils.py       # Preprocessing + model loading
 │   └── schema.py            # Input validation schema
+├── frontend/                # React frontend (UI)
+│   ├── src/                 # React source code
+│   └── public/              # Static assets
 ├── model/                  # Trained model + features
 │   ├── xgb_fraud_model.pkl
 │   └── feature_columns.pkl
@@ -166,26 +170,54 @@ fraud_detection_project/
 
 ---
 
+## Frontend
+
+The project includes a React-based frontend for interacting with the fraud detection API. This user interface allows you to submit transaction data and view predictions in a user-friendly way.
+
+### How to Run the Frontend
+
+1. Open a new terminal and navigate to the `frontend/` directory:
+   ```bash
+   cd frontend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm start
+   ```
+4. The app will be available at [http://localhost:3000](http://localhost:3000)
+
+---
+
 ## How to Run
 
-1. **Install dependencies:**
+1. **Install backend dependencies:**
    ```bash
    pip install -r app/requirements.txt
    ```
-
 2. **Start the API:**
    ```bash
    uvicorn app.main:app --reload
    ```
-
 3. **Access the docs:**
    - Open [http://localhost:8000/docs](http://localhost:8000/docs) for the interactive Swagger UI.
+4. **(Optional) Start the frontend:**
+   ```bash
+   cd frontend
+   npm install
+   npm start
+   ```
+   - Open [http://localhost:3000](http://localhost:3000) to use the web UI.
 
 ---
 
 ## Requirements
 
 - Python 3.7+
+- Node.js (v14+ recommended) and npm (for frontend Optional)
 - See `app/requirements.txt`:
   - fastapi
   - uvicorn
@@ -236,6 +268,7 @@ print(response.json())
 - `app/main.py`: FastAPI app, endpoints, and API logic
 - `app/model_utils.py`: Model loading and input preprocessing
 - `app/schema.py`: Pydantic schema for request validation
+- `frontend/`: React-based user interface for the API
 - `model/xgb_fraud_model.pkl`: Trained XGBoost model
 - `model/feature_columns.pkl`: Feature columns used by the model
 - `notebook/online_payment_fraud_detection.py`/`.ipynb`: Data analysis and model training
